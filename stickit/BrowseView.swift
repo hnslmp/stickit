@@ -38,12 +38,3 @@ struct BrowseView: View{
         }
     }
 }
-
-//struct HorizontalGrid: View{
-//    var body: some View{
-//        VStack(alignment: .leading){
-//            Text("Category Title")
-//                .font
-//        }
-//    }
-//}

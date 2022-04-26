@@ -15,6 +15,9 @@
 		B5F2135B2816946B00841B8B /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2135A2816946B00841B8B /* BrowseView.swift */; };
 		B5F2135D2816A20200841B8B /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2135C2816A20200841B8B /* PlacementSettings.swift */; };
 		B5F2135F2816A3B700841B8B /* PlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2135E2816A3B700841B8B /* PlacementView.swift */; };
+		B5F213622816B79F00841B8B /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = B5F213612816B79F00841B8B /* FocusEntity */; };
+		B5F213642816B86400841B8B /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F213632816B86400841B8B /* CustomARView.swift */; };
+		B5F213662816BD1C00841B8B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F213652816BD1C00841B8B /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,8 @@
 		B5F2135A2816946B00841B8B /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		B5F2135C2816A20200841B8B /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
 		B5F2135E2816A3B700841B8B /* PlacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementView.swift; sourceTree = "<group>"; };
+		B5F213632816B86400841B8B /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
+		B5F213652816BD1C00841B8B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F213622816B79F00841B8B /* FocusEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +69,10 @@
 				B59A389328167EB1003FA8C7 /* ContentView.swift */,
 				B5F213582816826B00841B8B /* ControlView.swift */,
 				B5F2135A2816946B00841B8B /* BrowseView.swift */,
+				B5F213652816BD1C00841B8B /* Model.swift */,
 				B5F2135E2816A3B700841B8B /* PlacementView.swift */,
 				B5F2135C2816A20200841B8B /* PlacementSettings.swift */,
+				B5F213632816B86400841B8B /* CustomARView.swift */,
 				B59A389528167EB2003FA8C7 /* Assets.xcassets */,
 				B59A389728167EB2003FA8C7 /* Preview Content */,
 			);
@@ -95,6 +103,9 @@
 			dependencies = (
 			);
 			name = stickit;
+			packageProductDependencies = (
+				B5F213612816B79F00841B8B /* FocusEntity */,
+			);
 			productName = stickit;
 			productReference = B59A388E28167EB1003FA8C7 /* stickit.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +134,9 @@
 				Base,
 			);
 			mainGroup = B59A388528167EB1003FA8C7;
+			packageReferences = (
+				B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = B59A388F28167EB1003FA8C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,7 +168,9 @@
 				B5F2135F2816A3B700841B8B /* PlacementView.swift in Sources */,
 				B5F213592816826B00841B8B /* ControlView.swift in Sources */,
 				B59A389228167EB1003FA8C7 /* stickitApp.swift in Sources */,
+				B5F213642816B86400841B8B /* CustomARView.swift in Sources */,
 				B5F2135D2816A20200841B8B /* PlacementSettings.swift in Sources */,
+				B5F213662816BD1C00841B8B /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5F213612816B79F00841B8B /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B59A388628167EB1003FA8C7 /* Project object */;
 }
