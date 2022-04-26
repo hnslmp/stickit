@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B523BFB228183735009F2177 /* RealityUI in Frameworks */ = {isa = PBXBuildFile; productRef = B523BFB128183735009F2177 /* RealityUI */; };
 		B59A389228167EB1003FA8C7 /* stickitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A389128167EB1003FA8C7 /* stickitApp.swift */; };
 		B59A389428167EB1003FA8C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A389328167EB1003FA8C7 /* ContentView.swift */; };
 		B59A389628167EB2003FA8C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59A389528167EB2003FA8C7 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F213622816B79F00841B8B /* FocusEntity in Frameworks */,
+				B523BFB228183735009F2177 /* RealityUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +107,7 @@
 			name = stickit;
 			packageProductDependencies = (
 				B5F213612816B79F00841B8B /* FocusEntity */,
+				B523BFB128183735009F2177 /* RealityUI */,
 			);
 			productName = stickit;
 			productReference = B59A388E28167EB1003FA8C7 /* stickit.app */;
@@ -136,6 +139,7 @@
 			mainGroup = B59A388528167EB1003FA8C7;
 			packageReferences = (
 				B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				B523BFB028183735009F2177 /* XCRemoteSwiftPackageReference "RealityUI" */,
 			);
 			productRefGroup = B59A388F28167EB1003FA8C7 /* Products */;
 			projectDirPath = "";
@@ -377,6 +381,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B523BFB028183735009F2177 /* XCRemoteSwiftPackageReference "RealityUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/RealityUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
@@ -388,6 +400,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B523BFB128183735009F2177 /* RealityUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B523BFB028183735009F2177 /* XCRemoteSwiftPackageReference "RealityUI" */;
+			productName = RealityUI;
+		};
 		B5F213612816B79F00841B8B /* FocusEntity */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5F213602816B79F00841B8B /* XCRemoteSwiftPackageReference "FocusEntity" */;

@@ -12,6 +12,8 @@ struct BrowseView: View{
     @Binding var showBrowse: Bool
     @State var notes: String = ""
     
+    let selectedModel = Model()
+    
     var body: some View{
         NavigationView{
             
@@ -19,9 +21,11 @@ struct BrowseView: View{
                         TextField("Enter username...", text: $notes, onEditingChanged: { (changed) in
                             print("Username onEditingChanged - \(changed)")
                             
+                            
                         }) {
-                            print("Username onCommit")
-                            self.placementSettings.selectedModel = notes
+                            selectedModel.notes = notes
+                            self.placementSettings.selectedModel = selectedModel
+                            print("Selected Model Set")
                         }
                         
                         Text("Your username: \(notes)")
