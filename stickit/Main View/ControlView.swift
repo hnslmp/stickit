@@ -79,6 +79,7 @@ struct ControlVisibilityToggleButton: View{
 }
 
 struct ControlButtonBar: View{
+    @EnvironmentObject var sceneManager: SceneManager
     @Binding var showBrowse: Bool
     
     var body: some View{
@@ -87,7 +88,9 @@ struct ControlButtonBar: View{
             //Load Experience
             ControlButton(systemIconName: "square.and.arrow.up"){
                 print("Load pressed")
+                self.sceneManager.shouldLoadSceneFromFilesystem = true
             }
+            .disabled(self.sceneManager.scenePersistenceData == nil)
             
             Spacer()
             
@@ -105,7 +108,9 @@ struct ControlButtonBar: View{
             //Save Experience
             ControlButton(systemIconName: "square.and.arrow.down"){
                 print("Save pressed")
+                self.sceneManager.shouldSaveSceneToFilesystem =  true
             }
+            .disabled(!self.sceneManager.isPersistenceAvailable)
             
         }
         .frame(maxWidth: 500)

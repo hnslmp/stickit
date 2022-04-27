@@ -12,6 +12,17 @@ import FocusEntity
 class CustomARView: ARView{
     var focusEntity: FocusEntity?
     
+    var defaultConfiguration: ARWorldTrackingConfiguration{
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = [.horizontal, .vertical]
+        
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh){
+            config.sceneReconstruction = .mesh
+        }
+        
+        return config
+    }
+    
     required init(frame frameRect: CGRect){
         super.init(frame: frameRect)
         
@@ -25,8 +36,6 @@ class CustomARView: ARView{
     }
     
     private func configure(){
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
-        session.run(config)
+        session.run(defaultConfiguration)
     }
 }

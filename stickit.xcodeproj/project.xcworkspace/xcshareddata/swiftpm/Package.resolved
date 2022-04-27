@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "focusentity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/FocusEntity",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d17dbbddd92d9b1661a42868fc51b86a3ad2fcb0"
+      }
+    },
+    {
+      "identity" : "realityui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/RealityUI.git",
+      "state" : {
+        "revision" : "512fe6acedccbcffa37b686d810843bebdc4cb1b",
+        "version" : "1.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}

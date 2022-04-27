@@ -13,6 +13,8 @@
 		B59A389428167EB1003FA8C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A389328167EB1003FA8C7 /* ContentView.swift */; };
 		B59A389628167EB2003FA8C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59A389528167EB2003FA8C7 /* Assets.xcassets */; };
 		B59A389928167EB2003FA8C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59A389828167EB2003FA8C7 /* Preview Assets.xcassets */; };
+		B5DAF4AF28193FEE002EE286 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAF4AE28193FEE002EE286 /* ARViewContainer.swift */; };
+		B5DAF4B1281945E1002EE286 /* ScenePersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DAF4B0281945E1002EE286 /* ScenePersistenceHelper.swift */; };
 		B5F213592816826B00841B8B /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F213582816826B00841B8B /* ControlView.swift */; };
 		B5F2135B2816946B00841B8B /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2135A2816946B00841B8B /* BrowseView.swift */; };
 		B5F2135D2816A20200841B8B /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2135C2816A20200841B8B /* PlacementSettings.swift */; };
@@ -29,6 +31,8 @@
 		B59A389328167EB1003FA8C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B59A389528167EB2003FA8C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59A389828167EB2003FA8C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5DAF4AE28193FEE002EE286 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		B5DAF4B0281945E1002EE286 /* ScenePersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePersistenceHelper.swift; sourceTree = "<group>"; };
 		B5F213582816826B00841B8B /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		B5F2135A2816946B00841B8B /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		B5F2135C2816A20200841B8B /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
@@ -59,14 +63,16 @@
 			path = "Main View";
 			sourceTree = "<group>";
 		};
-		B58AF79E2818DABD003D9B19 /* Model */ = {
+		B58AF79E2818DABD003D9B19 /* Model and Container */ = {
 			isa = PBXGroup;
 			children = (
 				B5F213652816BD1C00841B8B /* Model.swift */,
 				B5F213632816B86400841B8B /* CustomARView.swift */,
 				B58AF7A12818DAE3003D9B19 /* ColorSwatchView.swift */,
+				B5DAF4AE28193FEE002EE286 /* ARViewContainer.swift */,
+				B5DAF4B0281945E1002EE286 /* ScenePersistenceHelper.swift */,
 			);
-			path = Model;
+			path = "Model and Container";
 			sourceTree = "<group>";
 		};
 		B58AF79F2818DAC7003D9B19 /* Placement View */ = {
@@ -109,7 +115,7 @@
 				B58AF79D2818DAA4003D9B19 /* Main View */,
 				B58AF7A02818DACE003D9B19 /* Browse View */,
 				B58AF79F2818DAC7003D9B19 /* Placement View */,
-				B58AF79E2818DABD003D9B19 /* Model */,
+				B58AF79E2818DABD003D9B19 /* Model and Container */,
 				B59A389528167EB2003FA8C7 /* Assets.xcassets */,
 				B59A389728167EB2003FA8C7 /* Preview Content */,
 			);
@@ -203,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F2135B2816946B00841B8B /* BrowseView.swift in Sources */,
+				B5DAF4B1281945E1002EE286 /* ScenePersistenceHelper.swift in Sources */,
 				B59A389428167EB1003FA8C7 /* ContentView.swift in Sources */,
 				B5F2135F2816A3B700841B8B /* PlacementView.swift in Sources */,
 				B5F213592816826B00841B8B /* ControlView.swift in Sources */,
@@ -211,6 +218,7 @@
 				B5F213642816B86400841B8B /* CustomARView.swift in Sources */,
 				B5F2135D2816A20200841B8B /* PlacementSettings.swift in Sources */,
 				B5F213662816BD1C00841B8B /* Model.swift in Sources */,
+				B5DAF4AF28193FEE002EE286 /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,9 +19,10 @@ struct ARViewContainer: UIViewRepresentable{
         //Subsribe to SceneEvents.Update
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, {(event) in
             
+            //Being called at every frame
             self.updateScene(for: arView)
-            
             self.updatePersistenceAvailability(for: arView)
+            self.handlePersistence(for: arView)
             
         })
             
@@ -82,6 +83,24 @@ struct ARViewContainer: UIViewRepresentable{
 class SceneManager: ObservableObject{
     @Published var isPersistenceAvailable: Bool = false
     @Published var anchorEntities: [AnchorEntity] = [] //Keep track of all anchor entity
+    
+    var shouldSaveSceneToFilesystem: Bool  = false //Flag for saving scene
+    var shouldLoadSceneFromFilesystem: Bool = false //Flag for loading scene
+    
+    lazy var persistenceURL: URL = {
+        //Contain url location to contain scene data
+        do{
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("arf.persistence")
+        } catch {
+            fatalError("Unable to get persistenceURL: \(error.localizedDescription)")
+        }
+    }()
+    
+    var scenePersistenceData: Data? {
+        return try? Data(contentsOf: persistenceURL)
+    }
+    
+    
 }
 
 extension ARViewContainer{
@@ -96,6 +115,39 @@ extension ARViewContainer{
             self.sceneManager.isPersistenceAvailable  =  !self.sceneManager.anchorEntities.isEmpty
         default:
             self.sceneManager.isPersistenceAvailable = false
+        }
+    }
+    
+    private func handlePersistence(for arView: CustomARView){
+        
+        //When save scene triggered
+        if self.sceneManager.shouldSaveSceneToFilesystem{
+            
+            //Save the scene
+            ScenePersistenceHelper.saveScene(for: arView, at: self.sceneManager.persistenceURL)
+            
+            //Reset save flag
+            self.sceneManager.shouldSaveSceneToFilesystem = false
+            
+        }
+        //When load scene triggered
+        else if self.sceneManager.shouldLoadSceneFromFilesystem {
+            guard let scenePersistenceData = self.sceneManager.scenePersistenceData else {
+                print("Unable to retrieve scenePersistenceData. Canceled loadScene operation.")
+                
+                self.sceneManager.shouldLoadSceneFromFilesystem = false
+                
+                return
+            }
+            
+            //Load the scene
+            ScenePersistenceHelper.loadScene(for: arView, with: scenePersistenceData)
+            
+            //Clear all entities data
+            self.sceneManager.anchorEntities.removeAll(keepingCapacity: true)
+            
+            //Reset load flag
+            self.sceneManager.shouldLoadSceneFromFilesystem = false
         }
     }
 }
