@@ -9,5 +9,5 @@ import SwiftUI
 
 class Model{
     var notes: String?
-    var color: UIColor?
+    var color: String?
 }

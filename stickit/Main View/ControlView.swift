@@ -40,7 +40,7 @@ struct ControlVisibilityToggleButton: View{
                     print("Control Visibility pressed")
                     self.isControlVisible.toggle()
                 }){
-                    Image(systemName: self.isControlVisible ? "rectangle" : "slider.horizontal.below.rectangle")
+                    Image(systemName: self.isControlVisible ? "eye.slash" : "eye")
                         .font(.system(size: 25))
                         .foregroundColor(.white)
                         .buttonStyle(PlainButtonStyle())
@@ -65,7 +65,7 @@ struct ControlVisibilityToggleButton: View{
                         .buttonStyle(PlainButtonStyle())
                     
                         .alert(isPresented: $showingInfo){
-                            Alert(title: Text("Info"), message: Text("Press 􀈂 to load saved expeience \n Press 􀇷 to insert a new note \n Press 􀈄 to save experience"), dismissButton: .default(Text("Lets Go")))
+                            Alert(title: Text("Info"), message: Text("Press 􀈂 to load saved expeience \n Press 􀈊 to insert a new note \n Press 􀈄 to save experience"), dismissButton: .default(Text("Lets Go")))
                         }
                 }
             }
@@ -110,6 +110,7 @@ struct ControlButtonBar: View{
         }
         .frame(maxWidth: 500)
         .padding(30)
+        .padding(.bottom,20)
         .background(Color.black.opacity(0.25))
     }
 }

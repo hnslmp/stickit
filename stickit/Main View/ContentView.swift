@@ -9,8 +9,6 @@ import SwiftUI
 import RealityKit
 import RealityUI
 
-
-
 struct ContentView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @State private var isControlVisible: Bool = true
@@ -20,9 +18,10 @@ struct ContentView: View {
         ZStack(alignment: .bottom){
             ARViewContainer()
             
+            //Display control view if model is empty
             if self.placementSettings.selectedModel?.notes == nil{
                 ControlView(isControlVisible: $isControlVisible, showBrowse: $showBrowse)
-            } else {
+            } else { //Place model if selected
                 PlacementView()
             }
             
@@ -60,31 +59,36 @@ struct ARViewContainer: UIViewRepresentable{
         //Add model to scene
         if let confirmedModel = self.placementSettings.confirmedModel, let notes = confirmedModel.notes {
             
-            self.place(notes,in: arView)
+            //Place model
+            self.place(confirmedModel,in: arView)
             
+            //Clear Model
             self.placementSettings.confirmedModel = nil
         }
         
         
     }
     
-    private func place(_ notes: String, in arView: ARView){
+    private func place(_ confirmedModel: Model, in arView: ARView){
+        
+        //Resgiter RUI
         RealityUI.registerComponents()
+        
+        //Rotate orientation
         RealityUI.startingOrientation = simd_quatf(angle: .pi, axis: [0, 1, 0])
         print("Placing Entity")
-        let textEntity = RUIText(with: notes, width: 100, height: 1,font: RUIText.mediumFont, extrusion: 0.01, color: .yellow)
+        
+        //Create Text Entity
+        let textColor = UIColor(named: confirmedModel.color ?? "swatch_schooner")!
+        let textEntity = RUIText(with: confirmedModel.notes!, width: 100, height: 1,font: RUIText.mediumFont, extrusion: 0.01, color: textColor)
         textEntity.transform.scale *= 0.1
         arView.installGestures([.translation, .rotation], for: textEntity)
+        
+        //Create anchor and add entity
         let anchorEntity =  AnchorEntity(plane: .any)
         anchorEntity.addChild(textEntity)
         arView.scene.addAnchor(anchorEntity)
+        
         print("Entity Placed")
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//            .environmentObject(PlacementSettings())
-//    }
-//}
