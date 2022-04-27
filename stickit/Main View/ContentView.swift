@@ -41,8 +41,6 @@ struct ARViewContainer: UIViewRepresentable{
         //Subsribe to SceneEvents.Update
         self.placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, {(event) in
             
-            
-            
             self.updateScene(for: arView)
             
         })
@@ -75,7 +73,7 @@ struct ARViewContainer: UIViewRepresentable{
         RealityUI.startingOrientation = simd_quatf(angle: .pi, axis: [0, 1, 0])
         print("Placing Entity")
         let textEntity = RUIText(with: notes, width: 100, height: 1,font: RUIText.mediumFont, extrusion: 0.01, color: .yellow)
-        textEntity.transform.scale *= 0.3
+        textEntity.transform.scale *= 0.1
         arView.installGestures([.translation, .rotation], for: textEntity)
         let anchorEntity =  AnchorEntity(plane: .any)
         anchorEntity.addChild(textEntity)

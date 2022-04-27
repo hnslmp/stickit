@@ -84,9 +84,9 @@ struct ControlButtonBar: View{
     var body: some View{
         HStack{
             
-            //Most Recent
-            ControlButton(systemIconName: "clock.fill"){
-                print("MostRecentPlaced pressed")
+            //Load Experience
+            ControlButton(systemIconName: "square.and.arrow.up"){
+                print("Load pressed")
             }
             
             Spacer()
@@ -102,9 +102,9 @@ struct ControlButtonBar: View{
             
             Spacer()
             
-            //Setting
-            ControlButton(systemIconName: "slider.horizontal.3"){
-                print("Setting pressed")
+            //Save Experience
+            ControlButton(systemIconName: "square.and.arrow.down"){
+                print("Save pressed")
             }
             
         }
