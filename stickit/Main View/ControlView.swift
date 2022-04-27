@@ -26,12 +26,13 @@ struct ControlView: View{
 }
 
 struct ControlVisibilityToggleButton: View{
+    @State private var showingInfo = false
     @Binding var isControlVisible: Bool
     
     var body: some View{
         HStack{
-            Spacer()
             
+            //Visibility Button
             ZStack{
                 Color.black.opacity(0.25)
                 
@@ -47,9 +48,33 @@ struct ControlVisibilityToggleButton: View{
             }
             .frame(width: 50, height: 50)
             .cornerRadius(8.0)
+            
+            Spacer()
+            
+            //Info Button
+            ZStack{
+                Color.black.opacity(0.25)
+                
+                Button(action:{
+                    print("Info Button pressed")
+                    showingInfo = true
+                }){
+                    Image(systemName: "info.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .buttonStyle(PlainButtonStyle())
+                    
+                        .alert(isPresented: $showingInfo){
+                            Alert(title: Text("Info"), message: Text("Press 􀈂 to load saved expeience \n Press 􀇷 to insert a new note \n Press 􀈄 to save experience"), dismissButton: .default(Text("Lets Go")))
+                        }
+                }
+            }
+            .frame(width: 50, height: 50)
+            .cornerRadius(8.0)
         }
         .padding(.top,45)
         .padding(.trailing, 20)
+        .padding(.leading,20)
     }
 }
 

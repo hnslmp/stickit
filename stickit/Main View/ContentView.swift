@@ -73,54 +73,20 @@ struct ARViewContainer: UIViewRepresentable{
     private func place(_ notes: String, in arView: ARView){
         RealityUI.registerComponents()
         RealityUI.startingOrientation = simd_quatf(angle: .pi, axis: [0, 1, 0])
-//        let label = Label(notes,systemImage: "folder.circle")
-//        let anchorEntity =  AnchorEntity(plane: .any)
-//        let textAnchor = try! SomeText.loadTextScene()
-//
-//        let textEntity: Entity = textAnchor.vacation!.children[0].children[0]
-//
-//        var textModelComponent: ModelComponent = (textEntity.components[ModelComponent])!
-//
-//        textModelComponent.mesh = .generateText("Hello, World!",
-//                                 extrusionDepth: 0.5,
-//                                           font: .systemFont(ofSize: 0.25),
-//                                 containerFrame: CGRect.zero,
-//                                      alignment: .center,
-//                                  lineBreakMode: .byCharWrapping)
-//
-//
         print("Placing Entity")
-        
-        
-//        let box = MeshResource.generateBox(size: 0.3) // Generate mesh
-//        let entity = ModelEntity(mesh: box) // Create an entity from mesh
-      
-        
-//        let textEntity = ModelEntity(mesh: .generateText("Hello there", extrusionDepth: 0.4, font: .boldSystemFont(ofSize: 8), containerFrame: .zero, alignment: .center, lineBreakMode: .byWordWrapping))
-//        let text = MeshResource.generateText("Hello there", extrusionDepth: 0.4, font: .systemFont(ofSize: 32), containerFrame: .zero, alignment: .center, lineBreakMode: .byWordWrapping)
         let textEntity = RUIText(with: notes, width: 100, height: 1,font: RUIText.mediumFont, extrusion: 0.01, color: .yellow)
         textEntity.transform.scale *= 0.3
-//        textEntity.look(at: [0, 1.5, 0], from: [0, 1.5, -1], relativeTo: nil)
-//        let textEntity = ModelEntity(mesh: text)
-        
-        
         arView.installGestures([.translation, .rotation], for: textEntity)
         let anchorEntity =  AnchorEntity(plane: .any)
         anchorEntity.addChild(textEntity)
         arView.scene.addAnchor(anchorEntity)
-        
         print("Entity Placed")
-        
     }
-    
-    
-    
-    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(PlacementSettings())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//            .environmentObject(PlacementSettings())
+//    }
+//}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B523BFB228183735009F2177 /* RealityUI in Frameworks */ = {isa = PBXBuildFile; productRef = B523BFB128183735009F2177 /* RealityUI */; };
+		B58AF7A22818DAE3003D9B19 /* ColorSwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58AF7A12818DAE3003D9B19 /* ColorSwatchView.swift */; };
 		B59A389228167EB1003FA8C7 /* stickitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A389128167EB1003FA8C7 /* stickitApp.swift */; };
 		B59A389428167EB1003FA8C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A389328167EB1003FA8C7 /* ContentView.swift */; };
 		B59A389628167EB2003FA8C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59A389528167EB2003FA8C7 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B58AF7A12818DAE3003D9B19 /* ColorSwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwatchView.swift; sourceTree = "<group>"; };
 		B59A388E28167EB1003FA8C7 /* stickit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stickit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A389128167EB1003FA8C7 /* stickitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stickitApp.swift; sourceTree = "<group>"; };
 		B59A389328167EB1003FA8C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +50,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B58AF79D2818DAA4003D9B19 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				B59A389328167EB1003FA8C7 /* ContentView.swift */,
+				B5F213582816826B00841B8B /* ControlView.swift */,
+			);
+			path = "Main View";
+			sourceTree = "<group>";
+		};
+		B58AF79E2818DABD003D9B19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5F213652816BD1C00841B8B /* Model.swift */,
+				B5F213632816B86400841B8B /* CustomARView.swift */,
+				B58AF7A12818DAE3003D9B19 /* ColorSwatchView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B58AF79F2818DAC7003D9B19 /* Placement View */ = {
+			isa = PBXGroup;
+			children = (
+				B5F2135E2816A3B700841B8B /* PlacementView.swift */,
+				B5F2135C2816A20200841B8B /* PlacementSettings.swift */,
+			);
+			path = "Placement View";
+			sourceTree = "<group>";
+		};
+		B58AF7A02818DACE003D9B19 /* Browse View */ = {
+			isa = PBXGroup;
+			children = (
+				B5F2135A2816946B00841B8B /* BrowseView.swift */,
+			);
+			path = "Browse View";
+			sourceTree = "<group>";
+		};
 		B59A388528167EB1003FA8C7 = {
 			isa = PBXGroup;
 			children = (
@@ -68,13 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				B59A389128167EB1003FA8C7 /* stickitApp.swift */,
-				B59A389328167EB1003FA8C7 /* ContentView.swift */,
-				B5F213582816826B00841B8B /* ControlView.swift */,
-				B5F2135A2816946B00841B8B /* BrowseView.swift */,
-				B5F213652816BD1C00841B8B /* Model.swift */,
-				B5F2135E2816A3B700841B8B /* PlacementView.swift */,
-				B5F2135C2816A20200841B8B /* PlacementSettings.swift */,
-				B5F213632816B86400841B8B /* CustomARView.swift */,
+				B58AF79D2818DAA4003D9B19 /* Main View */,
+				B58AF7A02818DACE003D9B19 /* Browse View */,
+				B58AF79F2818DAC7003D9B19 /* Placement View */,
+				B58AF79E2818DABD003D9B19 /* Model */,
 				B59A389528167EB2003FA8C7 /* Assets.xcassets */,
 				B59A389728167EB2003FA8C7 /* Preview Content */,
 			);
@@ -172,6 +207,7 @@
 				B5F2135F2816A3B700841B8B /* PlacementView.swift in Sources */,
 				B5F213592816826B00841B8B /* ControlView.swift in Sources */,
 				B59A389228167EB1003FA8C7 /* stickitApp.swift in Sources */,
+				B58AF7A22818DAE3003D9B19 /* ColorSwatchView.swift in Sources */,
 				B5F213642816B86400841B8B /* CustomARView.swift in Sources */,
 				B5F2135D2816A20200841B8B /* PlacementSettings.swift in Sources */,
 				B5F213662816BD1C00841B8B /* Model.swift in Sources */,
