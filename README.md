@@ -12,7 +12,7 @@ Developed and tested on :
 - iOS 15.4.1
 - Xcode 13.3.1
 
-Using external library:
+Using external package:
 - Focus Entity [click here for instalation and documentation](https://github.com/maxxfrazer/FocusEntity)
 - Reality UI [click here for instalation and documentation](https://github.com/maxxfrazer/RealityUI)
 
