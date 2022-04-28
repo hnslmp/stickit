@@ -7,7 +7,7 @@
 
 import SwiftUI
 import RealityKit
-import RealityUI
+import RealityUI 
 
 struct ARViewContainer: UIViewRepresentable{
     @EnvironmentObject var placementSettings: PlacementSettings
@@ -53,22 +53,44 @@ struct ARViewContainer: UIViewRepresentable{
     
     private func place(_ confirmedModel: Model, in arView: ARView){
         
-        //Resgiter RUI
+//        //Resgiter RUI
         RealityUI.registerComponents()
-        
-        //Rotate orientation
+
+//        //Rotate orientation
         RealityUI.startingOrientation = simd_quatf(angle: .pi, axis: [0, 1, 0])
         print("Placing Entity")
-        
+
         //Create Text Entity
         let textColor = UIColor(named: confirmedModel.color ?? "swatch_schooner")!
         let textEntity = RUIText(with: confirmedModel.notes!, width: 100, height: 1,font: RUIText.mediumFont, extrusion: 0.01, color: textColor)
-        textEntity.transform.scale *= 0.1
+        
+//        textEntity.transform = Transform(pitch: 0, yaw: 1, roll: 0)
+        textEntity.transform.scale *= 0.05//        Transform(scale: textScale, rotation: 1, translation: 0)
+//        textEntity.transform = Transform(pitch: -1, yaw: 0, roll: 0)
         arView.installGestures([.translation, .rotation], for: textEntity)
+        
+        
+//        let planeMesh = generatePlane(width: 50, depth: 50, cornerRadius: 2)
+//        let planeEntity = ModelEntity(mesh: .generatePlane(width: 5, depth: 5, cornerRadius: 2))
+        
+        var simpleMaterial = SimpleMaterial()
+        simpleMaterial.baseColor = MaterialColorParameter.color(UIColor(named: "notesColor")!)
+        
+        let planeEntity = ModelEntity(mesh: .generatePlane(width: 0.2, height: 0.1),materials: [simpleMaterial])
+         // Make a model from a plate mesh with a width of 0.2m and a height of 0.3m.
+        planeEntity.transform = Transform(pitch: 0, yaw: 0, roll: 0)
+//        ModelEntity(mesh = .generatePlane(width: 50, depth: 50, cornerRadius: 2))
+        arView.installGestures([.translation, .rotation], for: planeEntity)
+        
+//        let textEntity = ModelEntity(mesh: .generateTex)
         
         //Create anchor and add entity
         let anchorEntity =  AnchorEntity(plane: .any)
+        
+        anchorEntity.addChild(planeEntity)
         anchorEntity.addChild(textEntity)
+        
+        
         arView.scene.addAnchor(anchorEntity)
         
         //Add entity to array entities
