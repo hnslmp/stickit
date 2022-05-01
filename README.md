@@ -1,6 +1,8 @@
 # Stick-It
 A native iOS app that can place reminder on your workspace using AR. Built using Reality kit and SwiftUI as the first Nano Challenge at Apple Developer  Academy @ Binus
 
+![alt text](https://github.com/hnslmp/stickit/blob/master/Documents/Steps.jpg)   
+
 ## Features
 
 - [x] Place text reminder in your AR world using realitykit
